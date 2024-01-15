@@ -18,9 +18,9 @@ namespace MM_Autohandel
         public NewCarPage()
         {
             InitializeComponent();
-            Car car = dbConn.getCars();
-            label3.Text = car.getBrand();
-            label4.Text = car.getModel();
+            Car[] cars = dbConn.getCars();
+            label3.Text = cars[0].getBrand();
+            label4.Text = cars[0].getModel();
         }
 
         private void button1_Click(object sender, EventArgs e)

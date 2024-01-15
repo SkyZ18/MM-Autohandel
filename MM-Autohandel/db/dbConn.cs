@@ -47,11 +47,14 @@ namespace MM_Autohandel.db
                     Console.Out.WriteLine("Finished creating table");
                 }
 
-                using (var command = new NpgsqlCommand("INSERT INTO cars (brand, model, whp) VALUES (@b1, @m1, @w1)", conn))
+                using (var command = new NpgsqlCommand("INSERT INTO cars (brand, model, whp) VALUES (@b1, @m1, @w1), (@b2, @m2, @w2)", conn))
                 {
                     command.Parameters.AddWithValue("b1", "BMW");
                     command.Parameters.AddWithValue("m1", "M3");
-                    command.Parameters.AddWithValue("w1", 150);
+                    command.Parameters.AddWithValue("w1", 200);
+                    command.Parameters.AddWithValue("b2", "VW");
+                    command.Parameters.AddWithValue("m2", "Golf");
+                    command.Parameters.AddWithValue("w2", 120);
 
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
@@ -59,11 +62,14 @@ namespace MM_Autohandel.db
             };
         }
 
-        public static Car getCars()
+        public static Car[] getCars()
         {
             string brand = null;
             string model = null;
             int whp = 0;
+            int i = 0;
+
+            Car[] cars = new Car[100];
 
             using (var conn = new NpgsqlConnection(connString))
             {
@@ -81,9 +87,11 @@ namespace MM_Autohandel.db
                         brand = reader.GetString(1);
                         model = reader.GetString(2);
                         whp = reader.GetInt32(3);
+                        cars[i] = new Car(brand, model, whp);
+                        i++;
                     }
                     reader.Close();
-                    return new Car(brand, model, whp);
+                    return cars;
                 }
             }
 

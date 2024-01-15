@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,19 +17,18 @@ namespace MM_Autohandel.db
         private static string DBname = "postgres";
         private static string Password = "123123";
         private static string Port = "5432";
+        private static string connString =
+            String.Format(
+                "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
+                Host,
+                User,
+                DBname,
+                Port,
+                Password
+                );
 
         public static void createConnection()
         {
-            string connString =
-                String.Format(
-                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password
-                    );
-
             using (var conn = new NpgsqlConnection(connString)) {
 
                 Console.Out.WriteLine("Opening connection");
@@ -56,9 +57,36 @@ namespace MM_Autohandel.db
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
             };
+        }
 
-            Console.WriteLine("Press RETURN to exit");
-            Console.ReadLine();
+        public static Car getCars()
+        {
+            string brand = null;
+            string model = null;
+            int whp = 0;
+
+            using (var conn = new NpgsqlConnection(connString))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+
+                using (var command = new NpgsqlCommand("SELECT * FROM cars", conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        brand = reader.GetString(1);
+                        model = reader.GetString(2);
+                        whp = reader.GetInt32(3);
+                    }
+                    reader.Close();
+                    return new Car(brand, model, whp);
+                }
+            }
+
         }
 
     }

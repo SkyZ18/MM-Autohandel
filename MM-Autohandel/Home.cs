@@ -23,7 +23,6 @@ namespace MM_Autohandel
             NewCarPage newCarPage = new NewCarPage();
             newCarPage.Show();
             Close();
-            dbConn.createConnection();
         }
     }
 }

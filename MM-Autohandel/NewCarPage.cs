@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MM_Autohandel.db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,9 @@ namespace MM_Autohandel
         public NewCarPage()
         {
             InitializeComponent();
+            Car car = dbConn.getCars();
+            label3.Text = car.getBrand();
+            label4.Text = car.getModel();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +45,21 @@ namespace MM_Autohandel
         private void NewCarPage_Load(object sender, EventArgs e)
         {
             visibleDropdown = false;
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

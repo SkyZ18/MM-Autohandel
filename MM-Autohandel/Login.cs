@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MM_Autohandel.db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace MM_Autohandel
         public Login()
         {
             InitializeComponent();
+            dbConn.createConnection();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -61,5 +61,13 @@ namespace MM_Autohandel
         {
 
         }
+
+        private void linkUsedCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UsedCarPage usedCarPage = new UsedCarPage();
+            usedCarPage.Show();
+            Close();
+            dbConn.createConnection();
+        }
     }
 }

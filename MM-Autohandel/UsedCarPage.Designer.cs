@@ -1,6 +1,6 @@
 ﻿namespace MM_Autohandel
 {
-    partial class NewCarPage
+    partial class UsedCarPage
     {
         /// <summary>
         /// Required designer variable.
@@ -33,10 +33,10 @@
             this.linkUsedCar = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.linkNewCar = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
             this.dropdownFilter = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,8 +59,9 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1653, 135);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(1663, 135);
+            this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // logoutButton
             // 
@@ -84,7 +85,6 @@
             this.linkUsedCar.TabStop = true;
             this.linkUsedCar.Text = "Gebraucht";
             this.linkUsedCar.VisitedLinkColor = System.Drawing.Color.Black;
-            this.linkUsedCar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUsedCar_LinkClicked);
             // 
             // label1
             // 
@@ -108,28 +108,18 @@
             this.linkNewCar.TabStop = true;
             this.linkNewCar.Text = "Neue Fahrzeuge";
             this.linkNewCar.VisitedLinkColor = System.Drawing.Color.Black;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(14, 155);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 39);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Filter";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.linkNewCar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewCar_LinkClicked);
             // 
             // dropdownFilter
             // 
             this.dropdownFilter.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.dropdownFilter.Controls.Add(this.textBox2);
             this.dropdownFilter.Controls.Add(this.textBox1);
-            this.dropdownFilter.Location = new System.Drawing.Point(14, 201);
+            this.dropdownFilter.Location = new System.Drawing.Point(14, 196);
             this.dropdownFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dropdownFilter.Name = "dropdownFilter";
             this.dropdownFilter.Size = new System.Drawing.Size(271, 279);
-            this.dropdownFilter.TabIndex = 4;
+            this.dropdownFilter.TabIndex = 8;
             this.dropdownFilter.Visible = false;
             // 
             // textBox2
@@ -149,17 +139,26 @@
             this.textBox1.Size = new System.Drawing.Size(229, 26);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "Marke";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(14, 150);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 39);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Filter";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(299, 155);
+            this.panel2.Location = new System.Drawing.Point(299, 150);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1340, 796);
-            this.panel2.TabIndex = 5;
+            this.panel2.TabIndex = 9;
             // 
             // panel3
             // 
@@ -172,7 +171,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(321, 346);
             this.panel3.TabIndex = 0;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label4
             // 
@@ -183,7 +181,6 @@
             this.label4.Size = new System.Drawing.Size(81, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "dummy";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -194,7 +191,6 @@
             this.label3.Size = new System.Drawing.Size(106, 32);
             this.label3.TabIndex = 1;
             this.label3.Text = "dummy";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -204,19 +200,17 @@
             this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 0;
             // 
-            // NewCarPage
+            // UsedCarPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1653, 966);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1663, 941);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dropdownFilter);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "NewCarPage";
-            this.Text = "NewCarPage";
-            this.Load += new System.EventHandler(this.NewCarPage_Load);
+            this.Controls.Add(this.panel2);
+            this.Name = "UsedCarPage";
+            this.Text = "UsedCarPage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.dropdownFilter.ResumeLayout(false);
@@ -235,14 +229,14 @@
         private System.Windows.Forms.LinkLabel linkUsedCar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkNewCar;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel dropdownFilter;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

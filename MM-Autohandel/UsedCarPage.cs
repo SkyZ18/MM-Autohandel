@@ -11,24 +11,22 @@ using System.Windows.Forms;
 
 namespace MM_Autohandel
 {
-    public partial class Home : Form
+    public partial class UsedCarPage : Form
     {
-        public Home()
+        public UsedCarPage()
         {
             InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void linkNewCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             NewCarPage newCarPage = new NewCarPage();
             newCarPage.Show();
-            Close();
-        }
-
-        private void linkUsedCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            UsedCarPage usedCarPage = new UsedCarPage();
-            usedCarPage.Show();
             Close();
             dbConn.createConnection();
         }

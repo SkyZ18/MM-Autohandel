@@ -30,7 +30,6 @@ namespace MM_Autohandel
             UsedCarPage usedCarPage = new UsedCarPage();
             usedCarPage.Show();
             Close();
-            dbConn.createConnection();
         }
     }
 }

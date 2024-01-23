@@ -38,14 +38,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.dropdownFilter.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,17 +51,15 @@
             this.panel1.Controls.Add(this.linkNewCar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1653, 135);
+            this.panel1.Size = new System.Drawing.Size(1469, 108);
             this.panel1.TabIndex = 1;
             // 
             // logoutButton
             // 
-            this.logoutButton.Location = new System.Drawing.Point(1544, 41);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.logoutButton.Location = new System.Drawing.Point(1372, 33);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(84, 45);
+            this.logoutButton.Size = new System.Drawing.Size(75, 36);
             this.logoutButton.TabIndex = 1;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = true;
@@ -77,9 +69,9 @@
             this.linkUsedCar.AutoSize = true;
             this.linkUsedCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkUsedCar.LinkColor = System.Drawing.Color.Black;
-            this.linkUsedCar.Location = new System.Drawing.Point(478, 52);
+            this.linkUsedCar.Location = new System.Drawing.Point(425, 42);
             this.linkUsedCar.Name = "linkUsedCar";
-            this.linkUsedCar.Size = new System.Drawing.Size(124, 29);
+            this.linkUsedCar.Size = new System.Drawing.Size(103, 25);
             this.linkUsedCar.TabIndex = 2;
             this.linkUsedCar.TabStop = true;
             this.linkUsedCar.Text = "Gebraucht";
@@ -90,9 +82,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 34);
+            this.label1.Location = new System.Drawing.Point(32, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 52);
+            this.label1.Size = new System.Drawing.Size(218, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "Autohandel";
             // 
@@ -101,20 +93,20 @@
             this.linkNewCar.AutoSize = true;
             this.linkNewCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkNewCar.LinkColor = System.Drawing.Color.Black;
-            this.linkNewCar.Location = new System.Drawing.Point(294, 52);
+            this.linkNewCar.Location = new System.Drawing.Point(261, 42);
             this.linkNewCar.Name = "linkNewCar";
-            this.linkNewCar.Size = new System.Drawing.Size(193, 29);
+            this.linkNewCar.Size = new System.Drawing.Size(158, 25);
             this.linkNewCar.TabIndex = 1;
             this.linkNewCar.TabStop = true;
             this.linkNewCar.Text = "Neue Fahrzeuge";
             this.linkNewCar.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkNewCar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewCar_LinkClicked);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 155);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(12, 124);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 39);
+            this.button1.Size = new System.Drawing.Size(74, 31);
             this.button1.TabIndex = 3;
             this.button1.Text = "Filter";
             this.button1.UseVisualStyleBackColor = true;
@@ -125,28 +117,25 @@
             this.dropdownFilter.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.dropdownFilter.Controls.Add(this.textBox2);
             this.dropdownFilter.Controls.Add(this.textBox1);
-            this.dropdownFilter.Location = new System.Drawing.Point(14, 201);
-            this.dropdownFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dropdownFilter.Location = new System.Drawing.Point(12, 161);
             this.dropdownFilter.Name = "dropdownFilter";
-            this.dropdownFilter.Size = new System.Drawing.Size(271, 279);
+            this.dropdownFilter.Size = new System.Drawing.Size(241, 223);
             this.dropdownFilter.TabIndex = 4;
             this.dropdownFilter.Visible = false;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 58);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Location = new System.Drawing.Point(13, 46);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 26);
+            this.textBox2.Size = new System.Drawing.Size(204, 22);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "Model";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 22);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Location = new System.Drawing.Point(13, 18);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 26);
+            this.textBox1.Size = new System.Drawing.Size(204, 22);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "Marke";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -154,66 +143,20 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(299, 155);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Location = new System.Drawing.Point(266, 124);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1340, 796);
+            this.panel2.Size = new System.Drawing.Size(1191, 637);
             this.panel2.TabIndex = 5;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(17, 21);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(321, 346);
-            this.panel3.TabIndex = 0;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 25);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "dummy";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 32);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "dummy";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 20);
-            this.label2.TabIndex = 0;
             // 
             // NewCarPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1653, 966);
+            this.ClientSize = new System.Drawing.Size(1469, 773);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dropdownFilter);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "NewCarPage";
             this.Text = "NewCarPage";
             this.Load += new System.EventHandler(this.NewCarPage_Load);
@@ -221,9 +164,6 @@
             this.panel1.PerformLayout();
             this.dropdownFilter.ResumeLayout(false);
             this.dropdownFilter.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -240,9 +180,5 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
     }
 }

@@ -14,13 +14,14 @@ namespace MM_Autohandel
     public partial class NewCarPage : Form
     {
         private bool visibleDropdown = false;
+        private int y = 230;
+        private int x = 230;
+        private int top = 5;
+        private int left = 5;
 
         public NewCarPage()
         {
             InitializeComponent();
-            Car[] cars = dbConn.getCars();
-            label3.Text = cars[0].getBrand();
-            label4.Text = cars[0].getModel();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,6 +46,19 @@ namespace MM_Autohandel
         private void NewCarPage_Load(object sender, EventArgs e)
         {
             visibleDropdown = false;
+            List<Car> cars = dbConn.getCars("newCars");
+            foreach (Car car in cars)
+            {
+                Panel item = new Panel();
+                item.Height = y;
+                item.Width = x;
+                item.BackColor = Color.Black;
+                item.Left = left;
+                item.Top = top;
+                panel2.Controls.Add(item);
+                left += 240;
+                Console.WriteLine(car.getBrand());
+            }
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -68,6 +82,11 @@ namespace MM_Autohandel
             usedCarPage.Show();
             Close();
             dbConn.createConnection();
+        }
+
+        private void linkNewCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

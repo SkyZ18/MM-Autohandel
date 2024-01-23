@@ -34,20 +34,20 @@ namespace MM_Autohandel.db
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
 
-                using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS cars", conn))
+                using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS newCars, usedCars", conn))
                 {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished dropping table (if existed)");
 
                 }
 
-                using (var command = new NpgsqlCommand("CREATE TABLE cars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER)", conn))
+                using (var command = new NpgsqlCommand("CREATE TABLE newCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER); CREATE TABLE usedCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER, km INTEGER)", conn))
                 {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished creating table");
                 }
 
-                using (var command = new NpgsqlCommand("INSERT INTO cars (brand, model, whp) VALUES (@b1, @m1, @w1), (@b2, @m2, @w2)", conn))
+                using (var command = new NpgsqlCommand("INSERT INTO newCars (brand, model, whp) VALUES (@b1, @m1, @w1), (@b2, @m2, @w2), (@b3, @m3, @w3)", conn))
                 {
                     command.Parameters.AddWithValue("b1", "BMW");
                     command.Parameters.AddWithValue("m1", "M3");
@@ -55,6 +55,24 @@ namespace MM_Autohandel.db
                     command.Parameters.AddWithValue("b2", "VW");
                     command.Parameters.AddWithValue("m2", "Golf");
                     command.Parameters.AddWithValue("w2", 120);
+                    command.Parameters.AddWithValue("b3", "AUDI");
+                    command.Parameters.AddWithValue("m3", "RS6");
+                    command.Parameters.AddWithValue("w3", 300);
+
+                    int nRows = command.ExecuteNonQuery();
+                    Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
+                }
+
+                using (var command = new NpgsqlCommand("INSERT INTO usedCars (brand, model, whp, km) VALUES (@b1, @m1, @w1, @k1), (@b2, @m2, @w2, @k2)", conn))
+                {
+                    command.Parameters.AddWithValue("b1", "BMW");
+                    command.Parameters.AddWithValue("m1", "330i");
+                    command.Parameters.AddWithValue("w1", 180);
+                    command.Parameters.AddWithValue("k1", 130_000);
+                    command.Parameters.AddWithValue("b2", "VW");
+                    command.Parameters.AddWithValue("m2", "Golf");
+                    command.Parameters.AddWithValue("w2", 120);
+                    command.Parameters.AddWithValue("k2", 180_000);
 
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
@@ -62,14 +80,14 @@ namespace MM_Autohandel.db
             };
         }
 
-        public static Car[] getCars()
+        public static List<Car> getCars(string table)
         {
             string brand = null;
             string model = null;
             int whp = 0;
-            int i = 0;
+            int km = 0;
 
-            Car[] cars = new Car[100];
+            List<Car> cars = new List<Car>();
 
             using (var conn = new NpgsqlConnection(connString))
             {
@@ -78,7 +96,7 @@ namespace MM_Autohandel.db
                 conn.Open();
 
 
-                using (var command = new NpgsqlCommand("SELECT * FROM cars", conn))
+                using (var command = new NpgsqlCommand("SELECT * FROM " + table, conn))
                 {
 
                     var reader = command.ExecuteReader();
@@ -87,8 +105,15 @@ namespace MM_Autohandel.db
                         brand = reader.GetString(1);
                         model = reader.GetString(2);
                         whp = reader.GetInt32(3);
-                        cars[i] = new Car(brand, model, whp);
-                        i++;
+                        if (table == "usedCars")
+                        {
+                            km = reader.GetInt32(4);
+                            cars.Add(new Car(brand, model, whp, km));
+                        } else
+                        {
+                            cars.Add(new Car(brand, model, whp));
+                        }
+                        
                     }
                     reader.Close();
                     return cars;

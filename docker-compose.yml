@@ -1,0 +1,9 @@
+services:
+    postgres:
+        image: postgres
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: autohaendler
+            POSTGRES_PASSWORD: 123123
+        ports:
+            - 5432:5432

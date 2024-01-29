@@ -42,5 +42,10 @@ namespace MM_Autohandel
         {
             return whp;
         }
+
+        public int getKm()
+        {
+            return km;
+        }
     }
 }

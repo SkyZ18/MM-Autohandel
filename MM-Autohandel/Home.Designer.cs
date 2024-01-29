@@ -33,6 +33,9 @@
             this.linkUsedCar = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.linkNewCar = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,11 +99,48 @@
             this.linkNewCar.VisitedLinkColor = System.Drawing.Color.Black;
             this.linkNewCar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewCar_LinkClicked);
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(345, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(785, 119);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Wilkommen! Kaufen sie neue oder gebrauchte Fahrzeuge. Buchen sie ganz einfach ein" +
+    "en Termin.";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(430, 408);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 67);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Neufahrzeuge";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(830, 408);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(227, 67);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Gebrauchtfahrzeuge";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1491, 758);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Name = "Home";
             this.Text = "Home";
@@ -117,5 +157,8 @@
         private System.Windows.Forms.LinkLabel linkUsedCar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkNewCar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -31,5 +31,24 @@ namespace MM_Autohandel
             usedCarPage.Show();
             Close();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NewCarPage newCarPage = new NewCarPage();
+            newCarPage.Show();
+            Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UsedCarPage usedCarPage = new UsedCarPage();
+            usedCarPage.Show();
+            Close();
+        }
     }
 }

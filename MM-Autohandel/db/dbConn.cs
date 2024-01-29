@@ -88,10 +88,10 @@ namespace MM_Autohandel.db
 
         public static List<Car> getCars(string table)
         {
-            string brand = null;
-            string model = null;
-            int whp = 0;
-            int km = 0;
+            string brand;
+            string model;
+            int whp;
+            int km;
 
             List<Car> cars = new List<Car>();
 

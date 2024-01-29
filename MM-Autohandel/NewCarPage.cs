@@ -16,8 +16,6 @@ namespace MM_Autohandel
         private bool visibleDropdown = false;
         private int y = 5;
         private int x = 5;
-        private int top = 5;
-        private int left = 5;
 
         public NewCarPage()
         {

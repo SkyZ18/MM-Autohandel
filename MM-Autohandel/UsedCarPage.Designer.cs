@@ -141,7 +141,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel2.BackColor = System.Drawing.Color.DarkGray;
             this.panel2.Location = new System.Drawing.Point(266, 120);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1191, 637);

@@ -41,13 +41,17 @@ namespace MM_Autohandel.db
 
                 }
 
-                using (var command = new NpgsqlCommand("CREATE TABLE newCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER); CREATE TABLE usedCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER, km INTEGER)", conn))
+                using (var command = new NpgsqlCommand(
+                    "CREATE TABLE newCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER); CREATE TABLE usedCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER, km INTEGER)",
+                    conn))
                 {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished creating table");
                 }
 
-                using (var command = new NpgsqlCommand("INSERT INTO newCars (brand, model, whp) VALUES (@b1, @m1, @w1), (@b2, @m2, @w2), (@b3, @m3, @w3)", conn))
+                using (var command = new NpgsqlCommand(
+                    "INSERT INTO newCars (brand, model, whp) VALUES (@b1, @m1, @w1), (@b2, @m2, @w2), (@b3, @m3, @w3)",
+                    conn))
                 {
                     command.Parameters.AddWithValue("b1", "BMW");
                     command.Parameters.AddWithValue("m1", "M3");
@@ -63,7 +67,9 @@ namespace MM_Autohandel.db
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
 
-                using (var command = new NpgsqlCommand("INSERT INTO usedCars (brand, model, whp, km) VALUES (@b1, @m1, @w1, @k1), (@b2, @m2, @w2, @k2)", conn))
+                using (var command = new NpgsqlCommand(
+                    "INSERT INTO usedCars (brand, model, whp, km) VALUES (@b1, @m1, @w1, @k1), (@b2, @m2, @w2, @k2)",
+                    conn))
                 {
                     command.Parameters.AddWithValue("b1", "BMW");
                     command.Parameters.AddWithValue("m1", "330i");

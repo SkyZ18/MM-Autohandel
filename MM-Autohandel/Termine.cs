@@ -16,5 +16,10 @@ namespace MM_Autohandel
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

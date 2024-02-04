@@ -60,7 +60,8 @@ namespace MM_Autohandel
                 description.Size = new Size(120, 100);
                 description.Font = new Font("Microsoft Sans Serif", 10);
                 description.BackColor = Color.Gray;
-                description.Text = "Car model: " + car.getModel() + " Car whp: " + car.getWhp();
+                description.Text = "Car model: " + car.getModel() + " Car whp: " + car.getWhp() + "       KM: " + car.getKm();
+
 
                 termin.Location = new Point(x + 65, y + 170);
                 termin.Size = new Size(125, 25);

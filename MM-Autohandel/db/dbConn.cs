@@ -34,7 +34,7 @@ namespace MM_Autohandel.db
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
 
-                using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS newCars, usedCars", conn))
+                using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS newCars, usedCars, users, appointments", conn))
                 {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished dropping table (if existed)");
@@ -42,7 +42,9 @@ namespace MM_Autohandel.db
                 }
 
                 using (var command = new NpgsqlCommand(
-                    "CREATE TABLE newCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER); CREATE TABLE usedCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER, km INTEGER)",
+                    "CREATE TABLE newCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER);" +
+                    "CREATE TABLE usedCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER, km INTEGER);" +
+                    "CREATE TABLE users(id serial PRIMARY KEY, email VARCHAR(30), password VARCHAR(16), appointments int);",
                     conn))
                 {
                     command.ExecuteNonQuery();
@@ -83,15 +85,26 @@ namespace MM_Autohandel.db
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
+
+                using (var command = new NpgsqlCommand(
+                    "INSERT INTO users (email, password) VALUES (@e1, @p1)",
+                    conn))
+                {
+                    command.Parameters.AddWithValue("e1", "admin@mail.haendler");
+                    command.Parameters.AddWithValue("p1", "123123");
+
+                    int nRows = command.ExecuteNonQuery();
+                    Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
+                }
             };
         }
 
         public static List<Car> getCars(string table)
         {
-            string brand = null;
-            string model = null;
-            int whp = 0;
-            int km = 0;
+            string brand;
+            string model;
+            int whp;
+            int km;
 
             List<Car> cars = new List<Car>();
 

@@ -16,8 +16,6 @@ namespace MM_Autohandel
         private bool visibleDropdown = false;
         private int y = 5;
         private int x = 5;
-        private int top = 5;
-        private int left = 5;
 
         public NewCarPage()
         {
@@ -113,6 +111,26 @@ namespace MM_Autohandel
         }
 
         private void linkNewCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dropdownFilter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -44,7 +44,8 @@ namespace MM_Autohandel.db
                 using (var command = new NpgsqlCommand(
                     "CREATE TABLE newCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER);" +
                     "CREATE TABLE usedCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER, km INTEGER);" +
-                    "CREATE TABLE users(id serial PRIMARY KEY, email VARCHAR(30), password VARCHAR(16), appointments int);",
+                    "CREATE TABLE appointments(id serial PRIMARY KEY, date DATE, time TIME, place VARCHAR(30));" +
+                    "CREATE TABLE users(id serial PRIMARY KEY, email VARCHAR(30), password VARCHAR(16), appointment INTEGER REFERENCES appointments(id));",
                     conn))
                 {
                     command.ExecuteNonQuery();
@@ -139,6 +140,51 @@ namespace MM_Autohandel.db
                 }
             }
 
+        }
+
+        public static bool loginService(string email, string password)
+        {
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                conn.Open();
+
+                using (var command = new NpgsqlCommand("SELECT email, password FROM users WHERE email='" + email + "' AND password='" + password + "'", conn))
+                {
+                    var reader = command.ExecuteReader();
+                    return reader.Read();
+                }
+            }
+        }
+
+        public static List<Car> filterCars(string brand, string model, int hp, string tableType)
+        {
+            string carBrand;
+            string carModel;
+            int carHp;
+
+            List<Car> cars = new List<Car>();
+
+            using (var conn = new NpgsqlConnection(connString)) 
+            {
+                conn.Open();
+
+                using (var command = new NpgsqlCommand("SELECT * FROM " + tableType + " WHERE brand='" + brand + "' OR model='" + model + "' OR whp='" + hp + "'", conn))
+                {
+                    var reader = command.ExecuteReader();
+
+                    while(reader.Read())
+                    {
+                        carBrand = reader.GetString(1);
+                        carModel = reader.GetString(2);
+                        carHp = reader.GetInt32(3);
+
+                        cars.Add(new Car(carBrand, carModel, carHp));
+                    }
+                    reader.Close();
+                    return cars;
+                    
+                }
+            }
         }
 
     }

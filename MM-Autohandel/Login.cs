@@ -21,8 +21,14 @@ namespace MM_Autohandel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
-            home.Show();
+            if(dbConn.loginService(textBox1.Text, textBox2.Text))
+            {
+                Home home = new Home();
+                home.Show();
+            } else
+            {
+                MessageBox.Show("Wrong information! Try again");
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -35,13 +35,14 @@
             this.linkNewCar = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.dropdownFilter = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.dropdownFilter.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +120,7 @@
             // dropdownFilter
             // 
             this.dropdownFilter.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dropdownFilter.Controls.Add(this.button2);
             this.dropdownFilter.Controls.Add(this.label4);
             this.dropdownFilter.Controls.Add(this.label3);
             this.dropdownFilter.Controls.Add(this.textBox3);
@@ -131,6 +133,42 @@
             this.dropdownFilter.TabIndex = 4;
             this.dropdownFilter.Visible = false;
             this.dropdownFilter.Paint += new System.Windows.Forms.PaintEventHandler(this.dropdownFilter_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "PS";
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Modell";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(13, 146);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(204, 22);
+            this.textBox3.TabIndex = 7;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Marke";
             // 
             // textBox2
             // 
@@ -156,41 +194,15 @@
             this.panel2.Size = new System.Drawing.Size(1191, 637);
             this.panel2.TabIndex = 5;
             // 
-            // label2
+            // button2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Marke";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Modell";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 16);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "PS";
-            this.label4.Click += new System.EventHandler(this.label4_Click_1);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(13, 146);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(204, 22);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.button2.Location = new System.Drawing.Point(13, 174);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(204, 35);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Use Filter";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // NewCarPage
             // 
@@ -228,5 +240,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button2;
     }
 }

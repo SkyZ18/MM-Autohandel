@@ -45,46 +45,8 @@ namespace MM_Autohandel
         {
             visibleDropdown = false;
             List<Car> cars = dbConn.getCars("newCars");
-            foreach (Car car in cars)
-            {
-                Panel panel = new Panel();
-                Label title = new Label();
-                Label description = new Label();
-                Button termin = new Button();
-
-                panel.Location = new Point(x, y);
-                panel.Size = new Size(200, 200);
-                panel.BackColor = Color.Gray;
-
-                title.Location = new Point(10 + x, 10);
-                title.Size = new Size(180, 25);
-                title.Font = new Font("Microsoft Sans Serif", 15);
-                title.BackColor = Color.Gray;
-                title.Text = car.getBrand();
-
-                description.Location = new Point(10 + x, 40);
-                description.Size = new Size(120, 100);
-                description.Font = new Font("Microsoft Sans Serif", 10);
-                description.BackColor = Color.Gray;
-                description.Text = "Car model: " + car.getModel() + " Car whp: " + car.getWhp();
-
-                termin.Location = new Point(x + 65, y + 170);
-                termin.Size = new Size(125, 25);
-                termin.BackColor = Color.LightGray;
-                termin.Text = "Terminvereinbarung";
-
-                Controls.Add(panel2);
-
-                panel2.Controls.Add(panel);
-                panel2.Controls.Add(title);
-                panel2.Controls.Add(termin);
-                panel2.Controls.Add(description);
-                title.BringToFront();
-                termin.BringToFront();
-                description.BringToFront();
-
-                x += 210;
-            }
+            loadItemsWithContext(cars);
+            
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -133,6 +95,56 @@ namespace MM_Autohandel
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<Car> cars = dbConn.filterCars(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), "newCars");
+            loadItemsWithContext(cars);
+        }
+
+        private void loadItemsWithContext(List<Car> cars)
+        {
+            foreach (Car car in cars)
+            {
+                Panel panel = new Panel();
+                Label title = new Label();
+                Label description = new Label();
+                Button termin = new Button();
+
+                panel.Location = new Point(x, y);
+                panel.Size = new Size(200, 200);
+                panel.BackColor = Color.Gray;
+
+                title.Location = new Point(10 + x, 10);
+                title.Size = new Size(180, 25);
+                title.Font = new Font("Microsoft Sans Serif", 15);
+                title.BackColor = Color.Gray;
+                title.Text = car.getBrand();
+
+                description.Location = new Point(10 + x, 40);
+                description.Size = new Size(120, 100);
+                description.Font = new Font("Microsoft Sans Serif", 10);
+                description.BackColor = Color.Gray;
+                description.Text = "Car model: " + car.getModel() + " Car whp: " + car.getWhp();
+
+                termin.Location = new Point(x + 65, y + 170);
+                termin.Size = new Size(125, 25);
+                termin.BackColor = Color.LightGray;
+                termin.Text = "Terminvereinbarung";
+
+                Controls.Add(panel2);
+
+                panel2.Controls.Add(panel);
+                panel2.Controls.Add(title);
+                panel2.Controls.Add(termin);
+                panel2.Controls.Add(description);
+                title.BringToFront();
+                termin.BringToFront();
+                description.BringToFront();
+
+                x += 210;
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{FD9B7303-F3C3-4DEB-B02F-1BDE8684BE66}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Global

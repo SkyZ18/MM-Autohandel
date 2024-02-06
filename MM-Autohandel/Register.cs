@@ -20,7 +20,7 @@ namespace MM_Autohandel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox1.Text.Contains("@"))
             {
                 if (textBox2.Text == textBox3.Text)
                 {

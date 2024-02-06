@@ -189,7 +189,7 @@ namespace MM_Autohandel.db
                         carBrand = reader.GetString(1);
                         carModel = reader.GetString(2);
                         carHp = reader.GetInt32(3);
-                        description = reader.GetString(4);
+                        description = reader.GetString(5);
 
                         cars.Add(new Car(carBrand, carModel, carHp, description));
                     }

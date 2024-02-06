@@ -122,7 +122,7 @@ namespace MM_Autohandel
 
                 termin.Click += (sender, e) =>
                 {
-                    openAppointment();
+                    openAppointment(car);
                 };
 
                 Controls.Add(panel2);
@@ -139,9 +139,9 @@ namespace MM_Autohandel
             }
         }
 
-        private void openAppointment()
+        private void openAppointment(Car car)
         {
-            Appointment appointment = new Appointment();
+            Termine appointment = new Termine(car);
             appointment.Show();
             Close();
         }

@@ -9,15 +9,13 @@ namespace MM_Autohandel
     internal class Appointments
     {
         private DateTime date;
-        private DateTime time;
         private string place;
         private int userid;
         private Car car;
 
-        public Appointments(DateTime date, DateTime time, string place, int userid, Car car) 
+        public Appointments(DateTime date, string place, int userid, Car car) 
         {
             this.date = date;
-            this.time = time;
             this.place = place;
             this.userid = userid;
             this.car = car;
@@ -28,14 +26,14 @@ namespace MM_Autohandel
             return date;
         }
 
-        public DateTime GetTime()
-        {
-            return time;
-        }
-
         public string GetPlace()
         {
             return place;
+        }
+
+        public int getUserid()
+        {
+            return userid;
         }
 
         public Car getCar()

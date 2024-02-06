@@ -50,5 +50,10 @@ namespace MM_Autohandel
             usedCarPage.Show();
             Close();
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

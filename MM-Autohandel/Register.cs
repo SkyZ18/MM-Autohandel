@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MM_Autohandel.db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,8 +20,23 @@ namespace MM_Autohandel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
-            home.Show();
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
+            {
+                if (textBox2.Text == textBox3.Text)
+                {
+                    dbConn.createNewUser(textBox1.Text, textBox2.Text);
+                    Home home = new Home();
+                    home.Show();
+                    Close();
+                }
+                else
+                {
+                    Exceptions.passwordDontMatch();
+                }
+            } else
+            {
+                Exceptions.invalidCharacter();
+            }
         }
     }
 }

@@ -18,5 +18,10 @@ namespace MM_Autohandel
         {
             MessageBox.Show("Please enter valid value");
         }
+
+        public static void passwordDontMatch()
+        {
+            MessageBox.Show("Please confirm Password");
+        }
     }
 }

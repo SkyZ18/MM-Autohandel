@@ -95,6 +95,11 @@ namespace MM_Autohandel
                 termin.Text = "Terminvereinbarung";
                 termin.Name = "terminBtn";
 
+                termin.Click += (sender, e) =>
+                {
+                    openAppointment(car);
+                };
+
                 Controls.Add(panel2);
 
                 panel2.Controls.Add(panel);
@@ -108,6 +113,14 @@ namespace MM_Autohandel
                 x += 210;
             }
         }
+
+        private void openAppointment(Car car)
+        {
+            Termine appointment = new Termine(car);
+            appointment.Show();
+            Close();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox5.Text == "" && textBox4.Text == "" && textBox3.Text == "")

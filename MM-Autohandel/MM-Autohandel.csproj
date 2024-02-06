@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="class\Car.cs" />
+    <Compile Include="class\SqlQuery.cs" />
     <Compile Include="db\dbConn.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>

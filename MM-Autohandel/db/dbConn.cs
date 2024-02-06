@@ -44,8 +44,8 @@ namespace MM_Autohandel.db
                 using (var command = new NpgsqlCommand(
                     "CREATE TABLE newCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER);" +
                     "CREATE TABLE usedCars(id serial PRIMARY KEY, brand VARCHAR(50), model VARCHAR(50), whp INTEGER, km INTEGER);" +
-                    "CREATE TABLE appointments(id serial PRIMARY KEY, date DATE, time TIME, place VARCHAR(30));" +
-                    "CREATE TABLE users(id serial PRIMARY KEY, email VARCHAR(30), password VARCHAR(16), appointment INTEGER REFERENCES appointments(id));",
+                    "CREATE TABLE users(id serial PRIMARY KEY, email VARCHAR(30), password VARCHAR(16));" +
+                    "CREATE TABLE appointments(id serial PRIMARY KEY, date DATE, time TIME, place VARCHAR(30), userid INTEGER REFERENCES users(id));",
                     conn))
                 {
                     command.ExecuteNonQuery();
@@ -156,7 +156,7 @@ namespace MM_Autohandel.db
             }
         }
 
-        public static List<Car> filterCars(string brand, string model, int hp, string tableType)
+        public static List<Car> filterCars(string[] inputs, string tableType)
         {
             string carBrand;
             string carModel;
@@ -168,7 +168,9 @@ namespace MM_Autohandel.db
             {
                 conn.Open();
 
-                using (var command = new NpgsqlCommand("SELECT * FROM " + tableType + " WHERE brand='" + brand + "' OR model='" + model + "' OR whp='" + hp + "'", conn))
+                SqlQuery sqlQuery = new SqlQuery();
+
+                using (var command = new NpgsqlCommand("SELECT * FROM " + tableType + " WHERE " + sqlQuery.build(inputs) + "", conn))
                 {
                     var reader = command.ExecuteReader();
 

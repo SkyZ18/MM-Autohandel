@@ -14,8 +14,7 @@ namespace MM_Autohandel
     public partial class NewCarPage : Form
     {
         private bool visibleDropdown = false;
-        private int y = 5;
-        private int x = 5;
+        
 
         public NewCarPage()
         {
@@ -69,7 +68,6 @@ namespace MM_Autohandel
             UsedCarPage usedCarPage = new UsedCarPage();
             usedCarPage.Show();
             Close();
-            dbConn.createConnection();
         }
 
         private void linkNewCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -92,19 +90,32 @@ namespace MM_Autohandel
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            List<Car> cars = dbConn.filterCars(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), "newCars");
+            string[] inputs = {textBox1.Text, textBox2.Text, textBox3.Text};
+
+            Controls.Add(panel2);
+            panel2.Controls.Clear();
+
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                if (inputs[i] == null)
+                {
+                    inputs[i] = "";
+                }
+
+                Console.WriteLine(inputs[i]);
+            }
+
+            List<Car> cars = dbConn.filterCars(inputs, "newCars");
             loadItemsWithContext(cars);
         }
 
         private void loadItemsWithContext(List<Car> cars)
         {
+            int y = 5;
+            int x = 5;
+
             foreach (Car car in cars)
             {
                 Panel panel = new Panel();
@@ -145,6 +156,19 @@ namespace MM_Autohandel
 
                 x += 210;
             }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Close();
+            
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            Close();
         }
     }
 }

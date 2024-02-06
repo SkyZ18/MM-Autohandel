@@ -32,7 +32,6 @@ namespace MM_Autohandel
             NewCarPage newCarPage = new NewCarPage();
             newCarPage.Show();
             Close();
-            dbConn.createConnection();
         }
 
         private void UsedCarPage_Load(object sender, EventArgs e)
@@ -94,6 +93,20 @@ namespace MM_Autohandel
                 dropdownFilter.Visible = true;
                 visibleDropdown = true;
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            Close();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            Close();
         }
     }
 }

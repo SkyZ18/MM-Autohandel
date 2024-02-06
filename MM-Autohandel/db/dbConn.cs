@@ -37,7 +37,7 @@ namespace MM_Autohandel.db
                 using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS newCars, usedCars, users, appointments", conn))
                 {
                     command.ExecuteNonQuery();
-                    Console.Out.WriteLine("Finished dropping table (if existed)");
+                    Console.WriteLine("Finished dropping table (if existed)");
 
                 }
 
@@ -49,7 +49,7 @@ namespace MM_Autohandel.db
                     conn))
                 {
                     command.ExecuteNonQuery();
-                    Console.Out.WriteLine("Finished creating table");
+                    Console.WriteLine("Finished creating table");
                 }
 
                 using (var command = new NpgsqlCommand(
@@ -60,14 +60,14 @@ namespace MM_Autohandel.db
                     command.Parameters.AddWithValue("m1", "M3");
                     command.Parameters.AddWithValue("w1", 200);
                     command.Parameters.AddWithValue("b2", "VW");
-                    command.Parameters.AddWithValue("m2", "Golf");
+                    command.Parameters.AddWithValue("m2", "GOLF");
                     command.Parameters.AddWithValue("w2", 120);
                     command.Parameters.AddWithValue("b3", "AUDI");
                     command.Parameters.AddWithValue("m3", "RS6");
                     command.Parameters.AddWithValue("w3", 300);
 
                     int nRows = command.ExecuteNonQuery();
-                    Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
+                    Console.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
 
                 using (var command = new NpgsqlCommand(
@@ -75,16 +75,16 @@ namespace MM_Autohandel.db
                     conn))
                 {
                     command.Parameters.AddWithValue("b1", "BMW");
-                    command.Parameters.AddWithValue("m1", "330i");
+                    command.Parameters.AddWithValue("m1", "330I");
                     command.Parameters.AddWithValue("w1", 180);
                     command.Parameters.AddWithValue("k1", 130_000);
                     command.Parameters.AddWithValue("b2", "VW");
-                    command.Parameters.AddWithValue("m2", "Golf");
+                    command.Parameters.AddWithValue("m2", "GOLF");
                     command.Parameters.AddWithValue("w2", 120);
                     command.Parameters.AddWithValue("k2", 180_000);
 
                     int nRows = command.ExecuteNonQuery();
-                    Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
+                    Console.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
 
                 using (var command = new NpgsqlCommand(
@@ -95,7 +95,7 @@ namespace MM_Autohandel.db
                     command.Parameters.AddWithValue("p1", "123123");
 
                     int nRows = command.ExecuteNonQuery();
-                    Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
+                    Console.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
             };
         }
@@ -112,7 +112,7 @@ namespace MM_Autohandel.db
             using (var conn = new NpgsqlConnection(connString))
             {
 
-                Console.Out.WriteLine("Opening connection");
+                Console.WriteLine("Opening connection");
                 conn.Open();
 
 

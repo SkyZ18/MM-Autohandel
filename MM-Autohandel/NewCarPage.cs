@@ -35,33 +35,14 @@ namespace MM_Autohandel
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void NewCarPage_Load(object sender, EventArgs e)
         {
             visibleDropdown = false;
-            List<Car> cars = dbConn.getCars("newCars");
-            loadItemsWithContext(cars);
+            renderCars();
             
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void linkUsedCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -70,45 +51,39 @@ namespace MM_Autohandel
             Close();
         }
 
-        private void linkNewCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dropdownFilter_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string[] inputs = {textBox1.Text, textBox2.Text, textBox3.Text};
-
-            Controls.Add(panel2);
-            panel2.Controls.Clear();
-
-            for (int i = 0; i < inputs.Length; i++)
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "")
             {
-                if (inputs[i] == null)
+                Exceptions.invalidCharacter();
+            } else
+            {
+                if (checkIn())
                 {
-                    inputs[i] = "";
+                    string[] inputs = { textBox1.Text.ToUpper(), textBox2.Text.ToUpper(), textBox3.Text };
+                    Controls.Add(panel2);
+                    panel2.Controls.Clear();
+
+                    for (int i = 0; i < inputs.Length; i++)
+                    {
+                        if (inputs[i] == null)
+                        {
+                            inputs[i] = "";
+                        }
+
+                        Console.WriteLine(inputs[i]);
+                    }
+
+                    List<Car> cars = dbConn.filterCars(inputs, "newCars");
+                    loadItemsWithContext(cars);
                 }
+                else
+                {
+                    Exceptions.invalidFilter();
 
-                Console.WriteLine(inputs[i]);
+                }
             }
-
-            List<Car> cars = dbConn.filterCars(inputs, "newCars");
-            loadItemsWithContext(cars);
         }
 
         private void loadItemsWithContext(List<Car> cars)
@@ -143,6 +118,12 @@ namespace MM_Autohandel
                 termin.Size = new Size(125, 25);
                 termin.BackColor = Color.LightGray;
                 termin.Text = "Terminvereinbarung";
+                termin.Name = "terminBtn";
+
+                termin.Click += (sender, e) =>
+                {
+                    openAppointment();
+                };
 
                 Controls.Add(panel2);
 
@@ -158,6 +139,13 @@ namespace MM_Autohandel
             }
         }
 
+        private void openAppointment()
+        {
+            Appointment appointment = new Appointment();
+            appointment.Show();
+            Close();
+        }
+
         private void logoutButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -169,6 +157,32 @@ namespace MM_Autohandel
             Home home = new Home();
             home.Show();
             Close();
+        }
+
+        private void linkNewCar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Controls.Add(panel2);
+            panel2.Controls.Clear();
+            renderCars();
+        }
+
+        private void renderCars()
+        {
+            List<Car> cars = dbConn.getCars("newCars");
+            loadItemsWithContext(cars);
+        }
+
+        private bool checkIn()
+        {
+            if (textBox3.Text == "")
+            {
+                return true;
+            }
+            else if (int.TryParse(textBox3.Text, out _))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -95,7 +95,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointment.Designer.cs">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class\Appointments.cs" />
     <Compile Include="class\Car.cs" />
+    <Compile Include="class\Exceptions.cs" />
     <Compile Include="class\SqlQuery.cs" />
     <Compile Include="db\dbConn.cs" />
     <Compile Include="Home.cs">
@@ -136,6 +144,9 @@
     <Compile Include="UsedCarPage.Designer.cs">
       <DependentUpon>UsedCarPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Appointment.resx">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>

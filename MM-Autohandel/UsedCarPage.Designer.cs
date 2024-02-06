@@ -29,16 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.logoutButton = new System.Windows.Forms.Button();
             this.linkUsedCar = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.linkNewCar = new System.Windows.Forms.LinkLabel();
             this.dropdownFilter = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.dropdownFilter.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +61,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1478, 108);
             this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(534, 42);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(64, 25);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Home";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // logoutButton
             // 
@@ -80,6 +98,7 @@
             this.linkUsedCar.TabStop = true;
             this.linkUsedCar.Text = "Gebraucht";
             this.linkUsedCar.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkUsedCar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUsedCar_LinkClicked);
             // 
             // label1
             // 
@@ -108,29 +127,18 @@
             // dropdownFilter
             // 
             this.dropdownFilter.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dropdownFilter.Controls.Add(this.textBox2);
-            this.dropdownFilter.Controls.Add(this.textBox1);
+            this.dropdownFilter.Controls.Add(this.button2);
+            this.dropdownFilter.Controls.Add(this.textBox3);
+            this.dropdownFilter.Controls.Add(this.label4);
+            this.dropdownFilter.Controls.Add(this.textBox5);
+            this.dropdownFilter.Controls.Add(this.label3);
+            this.dropdownFilter.Controls.Add(this.textBox4);
+            this.dropdownFilter.Controls.Add(this.label2);
             this.dropdownFilter.Location = new System.Drawing.Point(12, 157);
             this.dropdownFilter.Name = "dropdownFilter";
             this.dropdownFilter.Size = new System.Drawing.Size(241, 223);
             this.dropdownFilter.TabIndex = 8;
             this.dropdownFilter.Visible = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(13, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 22);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "Model";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 22);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Marke";
             // 
             // button1
             // 
@@ -150,19 +158,63 @@
             this.panel2.Size = new System.Drawing.Size(1191, 637);
             this.panel2.TabIndex = 9;
             // 
-            // linkLabel1
+            // button2
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(534, 42);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(64, 25);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Home";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.button2.Location = new System.Drawing.Point(14, 172);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(204, 35);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Use Filter";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 125);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 16);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "PS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Modell";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(14, 144);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(204, 22);
+            this.textBox3.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Marke";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(14, 88);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(204, 22);
+            this.textBox4.TabIndex = 11;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(14, 31);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(204, 22);
+            this.textBox5.TabIndex = 12;
             // 
             // UsedCarPage
             // 
@@ -193,10 +245,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkNewCar;
         private System.Windows.Forms.Panel dropdownFilter;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label2;
     }
 }

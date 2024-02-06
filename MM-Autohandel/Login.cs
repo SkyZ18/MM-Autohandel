@@ -29,6 +29,9 @@ namespace MM_Autohandel
             {
                 MessageBox.Show("Wrong information! Try again");
             }
+
+            textBox1.Text = "";
+            textBox2.Text = "";
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -36,5 +39,6 @@ namespace MM_Autohandel
             Register register = new Register();
             register.Show();
         }
+
     }
 }

@@ -15,3 +15,8 @@ docker-compose up
 Die Datenbank sollte nun automatisch in Docker angelegt werden. Am besten nochmal überprüfen ob der Port 5432:5432 ist.
 
 Wenn alles stimmt kann die C#-Applikation gestartet werden.
+
+## Anmeldedaten
+Die e-mail zum Anmelden lautet: admin@mail.haendler
+
+Das Passwort ist: 123123
